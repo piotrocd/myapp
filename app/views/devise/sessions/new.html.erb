@@ -8,9 +8,6 @@
 			  <%= f.input :email%>
 			  <%= f.input :password%>
 
-			  <div><%= f.label :password %><br />
-			  <%= f.password_field :password %></div>
-
 			  <% if devise_mapping.rememberable? -%>
 			    <div><%= f.input :remember_me, as: :boolean%> </div>
 			  <% end -%>

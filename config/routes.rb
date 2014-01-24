@@ -1,6 +1,7 @@
 Myapp::Application.routes.draw do
   devise_for :users
   resources :statuses
+  get 'yhy', to: 'statuses#index', as: :yhy
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -9,6 +10,12 @@ Myapp::Application.routes.draw do
   # root 'welcome#index'
   root :to => "statuses#index"
 
+
+  devise_scope :user do
+    get 'register', to: 'devise/registrations#new', as: :register
+    get 'login', to: 'devise/sessions#new', as: :login
+    get 'logout', to: 'devise/sessions#destroy', as: :logout
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
